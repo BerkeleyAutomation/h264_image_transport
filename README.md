@@ -1,0 +1,26 @@
+# ROS2 H264 Encoder and Decoder
+
+Note that currently, there is a small issue with regards to the H.264 decoder that is currently being worked on.
+
+There needs to be an edit to opencv_cam for the demo. Add `ros2_shared` to `opencv_cam/CMakeLists.txt:66`.
+
+To run a simple example, build the Dockerfile and make sure there is a file called test.mov in the directory. When executing the Dockerfile, run it with `/bin/bash` to get a terminal. In the terminal of the Dockerfile, run 
+```
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+ros2 launch h264_image_transport launch_decoder.py
+```
+
+This starts the H.264 decoder node, which will listen for H.264 messages and publish the raw decoded images.
+
+In another terminal in the same Docker container, run
+```
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+ros2 launch h264_image_transport launch_encoder_and_publisher.py
+```
+
+This starts a node that publishes a video and also launches the encoder. Note that the video may be very short, so the publisher could stop. In this case, you would simply have to restart the node.
+
+The overall topics are 
+/image_raw for the original image stream from the video, /in/h264 is the stream of compressed images, and /image_uncompressed is the uncompressed image stream.
