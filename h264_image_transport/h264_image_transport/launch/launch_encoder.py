@@ -12,14 +12,5 @@ def generate_launch_description():
                 ('in', 'image_raw'),
                 ('out/h264', 'in/h264')
             ]
-        ),
-        Node(
-            package='opencv_cam',
-            executable='opencv_cam_main',
-            name='image_publisher',
-            parameters=[
-                {'file': True},
-                {'filename': 'src/test.mov'}
-            ]
         )
     ])
