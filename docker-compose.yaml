@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+    decoder:
+      restart: always
+      build: 
+        context: ./
+        dockerfile: ./Dockerfile
+      network_mode: "host" 
+      command: > 
+        bash -c "source /opt/ros/humble/setup.bash;
+        source install/setup.bash;
+        ros2 launch h264_image_transport launch_decoder.py"
+
+    encoder:
+      restart: always
+      build: 
+        context: ./
+        dockerfile: ./Dockerfile
+      network_mode: "host" 
+      command: > 
+        bash -c "source /opt/ros/humble/setup.bash; 
+        source install/setup.bash;
+        ros2 launch h264_image_transport launch_encoder_and_publisher.py"
