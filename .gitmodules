@@ -1,3 +1,0 @@
-[submodule "ros2_shared"]
-	path = ros2_shared
-	url = git@github.com:ptrmu/ros2_shared.git
