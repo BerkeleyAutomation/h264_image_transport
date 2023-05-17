@@ -1,6 +1,3 @@
-[submodule "h264_image_transport"]
-	path = h264_image_transport
-	url = https://github.com/KDharmarajanDev/h264_image_transport
 [submodule "ros2_shared"]
 	path = ros2_shared
 	url = git@github.com:ptrmu/ros2_shared.git
