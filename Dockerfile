@@ -25,7 +25,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt install -y \
     libavcodec-dev \ 
     libavutil-dev \
     libswscale-dev \
-    libx264-dev
+    libx264-dev \ 
+    # Dependency below only needed for the demo, but not really needed for H.264
+    ros-${ROS_DISTRO}-camera-calibration-parsers
 
 # Create H.264 FogROS2 worspace and build it
 ENV ROS_WS=/home/root/fog_ws
@@ -34,4 +36,4 @@ WORKDIR ${ROS_WS}/src
 COPY .  ${ROS_WS}/src/
 WORKDIR ${ROS_WS}
 RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
-      colcon build --cmake-clean-cache
+      colcon build
