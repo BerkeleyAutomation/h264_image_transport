@@ -7,6 +7,8 @@ services:
         context: ./
         dockerfile: ./Dockerfile
       network_mode: "host" 
+      environment:
+        RMW_IMPLEMENTATION: "rmw_cyclonedds_cpp"
       command: > 
         bash -c "source /opt/ros/humble/setup.bash;
         source install/setup.bash;
@@ -18,6 +20,8 @@ services:
         context: ./
         dockerfile: ./Dockerfile
       network_mode: "host" 
+      environment:
+        RMW_IMPLEMENTATION: "rmw_cyclonedds_cpp"
       command: > 
         bash -c "source /opt/ros/humble/setup.bash; 
         source install/setup.bash;
@@ -29,6 +33,8 @@ services:
         context: ./
         dockerfile: ./Dockerfile
       network_mode: "host" 
+      environment:
+        RMW_IMPLEMENTATION: "rmw_cyclonedds_cpp"
       command: > 
         bash -c "source /opt/ros/humble/setup.bash; 
         source install/setup.bash;

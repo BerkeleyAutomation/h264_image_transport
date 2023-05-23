@@ -10,7 +10,7 @@ def generate_launch_description():
             arguments=['raw', 'h264'],
             remappings=[
                 ('in', 'image_raw'),
-                ('out/h264', 'in/h264')
+                ('out/h264', 'image/h264')
             ]
         )
     ])
