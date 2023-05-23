@@ -8,6 +8,7 @@ To run a simple example, build the Dockerfile and make sure there is a file call
 ```
 source /opt/ros/humble/setup.bash
 source install/setup.bash
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 ros2 launch h264_image_transport launch_decoder.py
 ```
 
@@ -17,8 +18,17 @@ In another terminal in the same Docker container, run
 ```
 source /opt/ros/humble/setup.bash
 source install/setup.bash
-ros2 launch h264_image_transport launch_encoder_and_publisher.py
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+ros2 launch h264_image_transport launch_encoder.py
 ```
+
+```
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+ros2 launch h264_image_transport launch_publisher.py
+```
+
 
 This starts a node that publishes a video and also launches the encoder. Note that the video may be very short, so the publisher could stop. In this case, you would simply have to restart the node.
 
