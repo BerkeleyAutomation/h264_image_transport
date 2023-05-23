@@ -8,7 +8,7 @@ ARG UBUNTU_DISTRO
 ARG ROS_DISTRO
 
 # Get ROS key
-RUN apt update && apt install -y curl gnupg2 lsb-release && \
+RUN apt update && apt install -y curl gnupg2 lsb-release wget && \
     curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 
 # Install apt deps 
@@ -35,5 +35,6 @@ RUN mkdir -p ${ROS_WS}/src
 WORKDIR ${ROS_WS}/src
 COPY .  ${ROS_WS}/src/
 WORKDIR ${ROS_WS}
+
 RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
       colcon build
