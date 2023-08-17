@@ -16,6 +16,8 @@
   <depend>h264_msgs</depend>  
   <depend>rclcpp</depend>
   <depend>image_transport</depend>
+  <depend>libswscale-dev</depend>
+  <depend>libx264-dev</depend>
 
   <export>
     <build_type>ament_cmake</build_type>

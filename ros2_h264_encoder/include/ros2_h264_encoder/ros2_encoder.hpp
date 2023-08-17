@@ -59,6 +59,7 @@ private:
         formats[sensor_msgs::image_encodings::RGB8] = AV_PIX_FMT_RGB24;        
         formats[sensor_msgs::image_encodings::RGBA16] = AV_PIX_FMT_RGBA64;
         formats[sensor_msgs::image_encodings::RGBA8] = AV_PIX_FMT_RGBA;
+        formats[sensor_msgs::image_encodings::YUV422_YUY2] = AV_PIX_FMT_YUYV422;
         return formats;
     }
 
